@@ -1,0 +1,26 @@
+INDEX VERSION 1.126+/Users/tsullivan/projects/SCALA/workspace/.metadata/.plugins/org.eclipse.jdt.core
+4011991818.index
+3956664589.index
+3031787073.index
+774564975.index
+1869927734.index
+882293821.index
+1319732789.index
+1276163524.index
+2784021859.index
+3408081233.index
+75204508.index
+1993881207.index
+3056353325.index
+919246033.index
+3842495342.index
+3069504370.index
+2370505161.index
+2642514657.index
+3054253263.index
+1177882070.index
+3299837220.index
+469616879.index
+225678325.index
+1698044383.index
+3489297892.index

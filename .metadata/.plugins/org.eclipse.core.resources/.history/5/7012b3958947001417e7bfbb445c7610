@@ -1,0 +1,58 @@
+package recfun
+import common._
+
+object Main {
+  def main(args: Array[String]) {
+    println("Pascal's Triangle")
+    for (row <- 0 to 10) {
+      for (col <- 0 to row)
+        print(pascal(col, row) + " ")
+      println()
+    }
+  }
+
+  /**
+   * Exercise 1
+   */
+  def pascal(column: Int, row: Int):Int = {
+		require(column >= 0)
+		require(column <= row)
+		require(row >= 0)
+		def lenientPascal(column:Int, row:Int):Int = {
+			val isTopCorner = (column == 0 && row == 0)
+			def sumOfParents() = {
+				def isColumnOutsideTriangle = (column < 0 || column > row)
+				if(isColumnOutsideTriangle) 0
+				else lenientPascal(column - 1, row - 1) + lenientPascal(column, row - 1)
+			}
+			if(isTopCorner) 1
+			else sumOfParents()
+		}
+		lenientPascal(column,row)
+	} 
+
+  /**
+   * Exercise 2
+   */
+  def balance(chars: List[Char]): Boolean = {
+    //implement a stack, where we push opens onto it and pop closes. but when popping, it must
+    //match the symbol we are popping. we must also end with 0 and never attempt to pop empty
+    def doesBalance(list:List[Char], numOpeningParens:Int):Boolean = {
+      if(chars.isEmpty) true
+      else doesBalance(chars.head, chars.tail, 0)
+    }
+    doesBalance(chars, 0)
+  }
+
+  /**
+   * Exercise 3
+   */
+  def countChange(money: Int, coins: List[Int]): Int = {
+    //how many combinations of the coins adds up to money?
+    //if the list contained 1 and the total was 5, there would be one way to add them up, all 1s
+    //if it contained 1 and 2, we could do 1, 1, 1, 1, 1; 1, 1, 1,2; 1, 2, 2
+    //if it contained 1, 2 and 3, we could do the above plus 1, 1, 3; 2, 3
+    
+    5
+  }
+}

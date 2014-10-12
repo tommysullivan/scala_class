@@ -1,0 +1,11 @@
+var a = 5
+console
+compile
+compile src/main/scala
+compile
+cd
+console
+run
+compile
+submit thomas.sullivan@lookout.com RxSNzwEvwS
+submit thomas.sullivan@lookout.com mcA7PKUMBs

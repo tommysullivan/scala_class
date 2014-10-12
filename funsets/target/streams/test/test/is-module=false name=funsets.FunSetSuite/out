@@ -1,0 +1,17 @@
+[0m[[0minfo[0m] [0m[32mFunSetSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- string take[0m[0m
+[0m[[0minfo[0m] [0m[32m- adding ints[0m[0m
+[0m[[0minfo[0m] [0m[32m- contains is implemented[0m[0m
+[0m[[0minfo[0m] [0m[32m- singletonSet(1) contains 1[0m[0m
+[0m[[0minfo[0m] [0m[32m- union contains all elements[0m[0m
+[0m[[0minfo[0m] [0m[32m- intersect - when set 1 is (1,2,3,4) and set 2 is (2, 4, 5) the intersection is (2,4)[0m[0m
+[0m[[0minfo[0m] [0m[32m- diff - when set 1 is (1,2,3,4) and set 2 is (2,4,5) the diff is (1,3)[0m[0m
+[0m[[0minfo[0m] [0m[32m- filter - when set 1 is (1,2,3,4) and p is true for 2, 4, and 5 the filter result is 2 and 4[0m[0m
+[0m[[0minfo[0m] [0m[32m- forall - when set is empty returns true[0m[0m
+[0m[[0minfo[0m] [0m[32m- forall - when set is 2,4 and predicate return true for even[0m[0m
+[0m[[0minfo[0m] [0m[32m- forall - when set is 2,4 and predicate return false for 4[0m[0m
+[0m[[0minfo[0m] [0m[32m- exists - when set is empty returns false[0m[0m
+[0m[[0minfo[0m] [0m[32m- exists - when set is 2,4,5 and predicate return true for 4 it returns true[0m[0m
+[0m[[0minfo[0m] [0m[32m- exists - when set is 2,4,5 and predicate return false for everything it is false[0m[0m
+[0m[[0minfo[0m] [0m[32m- map - when set is 1, 2, 3 and map is doubler it contains 2, 4, 6[0m[0m
+[0m[[0minfo[0m] [0m[32m- map - when set is empty and map is always returns 1 it contains nothing[0m[0m
