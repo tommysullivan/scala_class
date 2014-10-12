@@ -157,7 +157,8 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
       }
     }
     if(left.isEmpty()) {
-      greaterOfElemAndSetsBiggest(elem, right)
+      if(right.isEmpty()) elem
+      else greaterOfElemAndSetsBiggest(elem, right)
     } else {
       val mostRetweetedFromLeft = left.mostRetweeted
       if(mostRetweetedFromLeft.retweets > elem.retweets) greaterOfElemAndSetsBiggest(mostRetweetedFromLeft, right)
