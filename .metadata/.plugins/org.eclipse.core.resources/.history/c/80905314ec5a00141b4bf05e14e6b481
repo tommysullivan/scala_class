@@ -1,0 +1,11 @@
+package greeter
+
+object HelloWolrd extends App {
+	println("Hello "+ten.toString())
+	
+	def ten:Integer = {
+	  val x:Integer = y
+	  val y:Integer = 5
+	  x + y
+	}
+}

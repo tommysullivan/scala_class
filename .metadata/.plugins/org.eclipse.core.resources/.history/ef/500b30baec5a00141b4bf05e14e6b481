@@ -1,0 +1,11 @@
+package greeter
+
+object HelloWolrd extends App {
+	println("Hello "+ten.toString())
+	
+	def ten:Integer = {
+	  lazy val x:Integer = y
+	  lazy val y:Integer = 5
+	  x + y
+	}
+}
