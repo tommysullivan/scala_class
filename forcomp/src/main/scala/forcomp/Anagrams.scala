@@ -34,12 +34,17 @@ object Anagrams {
    *  same character, and are represented as a lowercase character in the occurrence list.
    */
   def wordOccurrences(w: Word): Occurrences = {
-		  w.groupBy(_.toLower).toList.sortWith((p1, p2) => p1._1 < p2._1).map(p=>(p._1, p._2.length))
+	  w.groupBy(_.toLower).toList.sortWith((p1, p2) => p1._1 < p2._1).map(p=>(p._1, p._2.length))
   } 
+  
+  def sumPairs(arrayOfPairs:List[(Char, Int)]):Int = {
+    if(arrayOfPairs.isEmpty) 0
+    else arrayOfPairs.head._2 + sumPairs(arrayOfPairs.tail)
+  }
 
   /** Converts a sentence into its character occurrence list. */
   def sentenceOccurrences(s: Sentence): Occurrences = {
-    s.flatMap(wordOccurrences).groupBy(p=>p._1).toList.sortWith((p1, p2) => p1._1 < p2._1).map(p=>(p._1, p._2.length))
+    s.flatMap(wordOccurrences).groupBy(_._1).toList.sortWith((p1, p2) => p1._1 < p2._1).map(p=>(p._1, sumPairs(p._2)))
   }
 
   /** The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
@@ -168,20 +173,6 @@ object Anagrams {
     else getAnagramsForOccurrences(sentenceOccurrences(sentence))
   }
   
-  /*
-    occurrences = List(('i',1),('l',1),('n',1))
-    subOccurrencesList = List(
-      List(),
-      List(('l', 1)),
-      List(('i', 1)),
-      List(('n', 1)),
-      List(('i', 1),('l', 1)),
-      List(('i', 1),('n', 1)),
-      List(('l', 1),('n', 1)),
-      List(('i',1),('l',1),('n',1))
-    )
-   */
-  
   def getAnagramsForOccurrences(occurrences: Occurrences):List[Sentence] = {
 	  val subOccurrencesList = combinations(occurrences)
 	  subOccurrencesList.flatMap(getAnagramsForSubOccurrences(_, occurrences)).distinct
@@ -196,7 +187,7 @@ object Anagrams {
 		else {
 			val previousAnagrams = getAnagramsForOccurrences(diff)
 			if(previousAnagrams.isEmpty) previousAnagrams
-			else wordsForSuboccurrences.flatMap(word => previousAnagrams.map(sentence => word :: sentence))
+			else wordsForSuboccurrences.flatMap(word => previousAnagrams.map(sentence => word :: sentence)).distinct
 	    }
     }
   }

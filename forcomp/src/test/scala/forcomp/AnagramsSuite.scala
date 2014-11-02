@@ -26,13 +26,14 @@ class AnagramsSuite extends FunSuite {
     assert(sentenceOccurrences(List("abcd", "e")) === List(('a', 1), ('b', 1), ('c', 1), ('d', 1), ('e', 1)))
   }
 
-
+  test("sentenceOccurrences: Roberto Carlos") {
+    val sentence = List("Roberto","Carlos")
+    assert(sentenceOccurrences(sentence) === List(('a',1), ('b',1), ('c',1), ('e',1), ('l',1), ('o',3), ('r',3), ('s',1), ('t',1)))
+  }
 
   test("dictionaryByOccurrences.get: eat") {
     assert(dictionaryByOccurrences.get(List(('a', 1), ('e', 1), ('t', 1))).map(_.toSet) === Some(Set("ate", "eat", "tea")))
   }
-
-
 
   test("word anagrams: married") {
     assert(wordAnagrams("married").toSet === Set("married", "admirer"))
@@ -41,8 +42,6 @@ class AnagramsSuite extends FunSuite {
   test("word anagrams: player") {
     assert(wordAnagrams("player").toSet === Set("parley", "pearly", "player", "replay"))
   }
-
-
 
   test("subtract: lard - r") {
     val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
@@ -144,69 +143,6 @@ class AnagramsSuite extends FunSuite {
       List("Linux", "rulez")
     )
     assert(sentenceAnagrams(sentence).toSet === anas.toSet)
-  }  
-  
-  /*
-
-	Set(
-		List(nil, zulu, rex), 
-		List(rulez, linux),
-		List(rex, lin, zulu),
-		List(lin, zulu, rex),
-		List(rex, null, uzi),
-		List(linux, rulez),
-		List(rex, zulu, lin), 
-		List(rex, uzi, null),
-		List(uzi, rex, null),
-		List(null, rex, uzi),
-		List(zulu, rex, nil), 
-		List(zulu, nil, rex),
-		List(lin, rex, zulu),
-		List(uzi, null, rex),
-		List(zulu, rex, lin),
-		List(zulu, lin, rex),
-		List(rex, nil, zulu),
-		List(null, uzi, rex),
-		List(rex, zulu, nil), 
-		List(nil, rex, zulu)
-      )
-      did not equal 
-      
-Set(
-		List(Zulu, nil, Rex),
-		List(null, Uzi, Rex), 
-		List(Zulu, Lin, Rex), 
-		List(Uzi, null, Rex), 
-		List(Uzi, Rex, null), 
-		List(Rex, Uzi, null), 
-		List(Lin, Rex, Zulu), 
-		List(nil, Rex, Zulu), 
-		List(nil, Zulu, Rex), 
-		List(null, Rex, Uzi), 
-		List(Rex, Zulu, Lin), 
-		List(Rex, nil, Zulu), 
-		List(Rex, null, Uzi), 
-		List(Zulu, Rex, Lin), 
-		List(Zulu, Rex, nil), 
-		List(rulez, Linux), 
-		List(Rex, Lin, Zulu), 
-		List(Rex, Zulu, nil), 
-		List(Lin, Zulu, Rex), 
-		List(Linux, rulez)
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-   */
+  }
 
 }
