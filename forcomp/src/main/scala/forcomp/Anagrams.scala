@@ -170,22 +170,23 @@ object Anagrams {
   
   def sentenceAnagrams(sentence: Sentence): List[Sentence] = {
     if(sentence==Nil) List(Nil)
-    else getAnagramsForOccurrences(sentenceOccurrences(sentence))
+    else getAnagramsForOccurrences(sentenceOccurrences(sentence), Map())
   }
   
-  def getAnagramsForOccurrences(occurrences: Occurrences):List[Sentence] = {
+  def getAnagramsForOccurrences(occurrences: Occurrences, mapOfComputedAnagrams:Map[Occurrences, List[Sentence]]):List[Sentence] = {
 	  val subOccurrencesList = combinations(occurrences)
-	  subOccurrencesList.flatMap(getAnagramsForSubOccurrences(_, occurrences)).distinct
+	  subOccurrencesList.flatMap(getAnagramsForSubOccurrences(_, occurrences, mapOfComputedAnagrams)).distinct
   }
   
-  def getAnagramsForSubOccurrences(subOccurrences:Occurrences, occurrences:Occurrences):List[Sentence] = {
-    if(subOccurrences.isEmpty) List()
+  def getAnagramsForSubOccurrences(subOccurrences:Occurrences, occurrences:Occurrences, mapOfComputedAnagrams:Map[Occurrences, List[Sentence]]):List[Sentence] = {
+    if(mapOfComputedAnagrams.contains(subOccurrences)) mapOfComputedAnagrams.getOrElse(subOccurrences, List())
+    else if(subOccurrences.isEmpty) List()
     else {
     	val diff = subtract(occurrences, subOccurrences)
 		val wordsForSuboccurrences = dictionaryByOccurrences.getOrElse(subOccurrences, List())
 		if(diff.isEmpty) wordsForSuboccurrences.map(List(_)) //create 1 word sentences with each word
 		else {
-			val previousAnagrams = getAnagramsForOccurrences(diff)
+			val previousAnagrams = getAnagramsForOccurrences(diff, mapOfComputedAnagrams)
 			if(previousAnagrams.isEmpty) previousAnagrams
 			else wordsForSuboccurrences.flatMap(word => previousAnagrams.map(sentence => word :: sentence)).distinct
 	    }

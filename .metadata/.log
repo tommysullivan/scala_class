@@ -82,3 +82,16 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/tsull
 
 !ENTRY org.eclipse.core.net 1 0 2014-11-01 11:51:16.713
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-11-15 12:55:42.671 -----------------------------------------------
+eclipse.buildId=3.0.4-2.11-20140723-2253-Typesafe
+java.version=1.7.0_67
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/tsullivan/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/tsullivan/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-11-15 12:55:49.235
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2014-11-15 12:55:51.851
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
